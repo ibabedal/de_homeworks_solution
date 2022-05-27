@@ -1,0 +1,42 @@
+version: '3'
+services:
+  zookeeper:
+    hostname: zookeeper
+    container_name: ibrahim_zookeeper_dataenv
+    image: 'bitnami/zookeeper:latest'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    networks:
+      - localnet
+  nifi:
+    image: mkobit/nifi
+    container_name: ibrahim_nifi_dataenv
+    ports:
+      - 8080:8080
+      - 8081:8081
+    environment:
+      - NIFI_WEB_HTTP_PORT=8080
+      - NIFI_ZK_CONNECT_STRING=zookeeper:2181
+    volumes:
+      - ./notebooks/data:/tmp/
+    networks:
+      - localnet
+ 
+  minimal-jupyter-notebook:
+    image: jupyter/minimal-notebook:latest
+    container_name: ibrahim_ds_notebook
+    environment:
+        JUPYTER_ENABLE_LAB: "yes"
+        JUPYTER_TOKEN : "password123"
+        GRANT_SUDO: "yes"
+        NOTEBOOK_ARGS: "--allow-root"
+    volumes:
+      - ./notebooks:/home/jovyan
+    ports:
+      - 8888:8888
+    networks:
+      - localnet
+
+networks:
+    localnet:
+        attachable: true
