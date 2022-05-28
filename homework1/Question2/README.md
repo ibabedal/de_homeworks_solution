@@ -21,3 +21,19 @@
 
 ---
 
+## Q2 DAG detail:
+
+#### The DAG contains 6 tasks that are explained as below:
+- starting_point: a bash operator that echo a message indicating the start of workflow
+- installing_dep: a python operator that installs the pymongo module for python as it is not installed by default.
+  - NOTE: since we had 1 worker node in this example this would do the trick, if multiple worker nodes are there, a different method will be used to install the missing modules for python
+- psqlTOdf: a python operator that will connect to the PostgresQL and will fetch the data from table "data" and return a pandas dataframe
+- csvTOjson: a python operator that will read the returned (using airflow [XCOM](https://airflow.apache.org/docs/apache-airflow/stable/concepts/xcoms.html 'XCOM')) and will transfer it from its form into JSON List and return the generated list
+- jsonTOmongo: a python operator that will read the returned JSON list (using XCOM also) and then transfer each json instance to mongodb database named "de_hw1" with collection called "jsonData"
+- ending_point: a bash operator that echo a message indicating the end of the workflow
+
+---
+
+## Additional information:
+- Below is a nice example on how to use the XCOM in airflow: https://marclamberti.com/blog/airflow-dag-creating-your-first-dag-in-5-minutes/
+- Added the option "AIRFLOW__CORE__ENABLE_XCOM_PICKLING: 'true'" in the docker-compose file for airflow configuration to allow it to serialize non-JSON objects in the XCOM so that other tasks can read it ref: https://github.com/apache/airflow/issues/13487, https://stackoverflow.com/questions/65846976/passing-xcom-value-to-jiraoperator-in-airflow
