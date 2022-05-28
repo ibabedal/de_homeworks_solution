@@ -18,24 +18,24 @@ services:
       - NIFI_WEB_HTTP_PORT=8080
       - NIFI_ZK_CONNECT_STRING=zookeeper:2181
     volumes:
-      - ./notebooks/data:/tmp/
+      - ./data:/tmp/
     networks:
       - localnet
  
-  minimal-jupyter-notebook:
-    image: jupyter/minimal-notebook:latest
-    container_name: ibrahim_ds_notebook
-    environment:
-        JUPYTER_ENABLE_LAB: "yes"
-        JUPYTER_TOKEN : "password123"
-        GRANT_SUDO: "yes"
-        NOTEBOOK_ARGS: "--allow-root"
-    volumes:
-      - ./notebooks:/home/jovyan
-    ports:
-      - 8888:8888
-    networks:
-      - localnet
+#  minimal-jupyter-notebook:
+#    image: jupyter/minimal-notebook:latest
+#    container_name: ibrahim_ds_notebook
+#    environment:
+#        JUPYTER_ENABLE_LAB: "yes"
+#        JUPYTER_TOKEN : "password123"
+#        GRANT_SUDO: "yes"
+#        NOTEBOOK_ARGS: "--allow-root"
+#    volumes:
+#      - ./notebooks:/home/jovyan
+#    ports:
+#      - 8888:8888
+#    networks:
+#      - localnet
 
 networks:
     localnet:
