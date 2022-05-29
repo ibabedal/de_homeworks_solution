@@ -23,8 +23,17 @@
 - Once logged, please click on upload template and uploaded the file "ibrahim_template_nifi.xml" as shown in screenshots below:
     - Upload template <br/>
         ![step1](./images/img1.png)
-    - Select the template from local dirctory:
+    - Select the template from local dirctory:<br/>
         ![step2](./images/img2.png)
-    - Below how it looks like once images selected:
+    - Below how it looks like once images selected: <br/>
         ![step3](./images/img3.png)
-    
+    - When the workflow is uploaded successfully:<br/>
+        ![step4](./images/img4.png)
+    - Then click on use template from the top menu:<br/>
+        ![step5](./images/img5.png)
+    - Select the template that was just updated:<br/>
+        ![step6](./images/img6.png)
+    - The workflow should be loaded, select from navigation on the left the start button to start the workflow:<br/>
+        ![step7](./images/img7.png)
+    - Once the workflow will be show output as below, and a file named **data.json** should be in ./data directory contains the converted file:<br/>
+        ![step8](./images/img8.png)
