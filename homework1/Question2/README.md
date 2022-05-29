@@ -1,4 +1,4 @@
-# Question2 of homework1 solution
+# Solution for Question2 from homework1
 
 ## Introduction to the current files:
 - prepareenv.sh: a base script to create the needed folders that will be mounted on each container

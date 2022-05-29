@@ -1,4 +1,4 @@
-# Question1 for homework1 solution
+# Solution for Question1 from homework1
 
 ## Introduction to the current files:
 
@@ -22,9 +22,9 @@
 - Please login to nifi on http://localhost:8080
 - Once logged, please click on upload template and uploaded the file "ibrahim_template_nifi.xml" as shown in screenshots below:
     - Upload template
-        - ![step1][./images/img1]
+        - ![step1](./images/img1)
     - Select the template from local dirctory:
-        - ![step2][./images/img2]
+        - ![step2](./images/img2)
     - Below how it looks like once images selected:
-        - ![step3][./images/img3]
+        - ![step3](./images/img3)
     
