@@ -81,7 +81,7 @@ services:
             NOTEBOOK_ARGS: "--allow-root"
             
         ports:
-            - "8899:8888"
+            - "8888:8888"
         networks:
             - localnet
     mongo:
