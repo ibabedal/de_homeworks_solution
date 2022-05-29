@@ -21,7 +21,7 @@
 - Please run the script ./prepareenv.sh that should take care of having all folders, containers, scripts and data prepared
 - Please login to nifi on http://localhost:8080
 - Once logged, please click on upload template and uploaded the file "ibrahim_template_nifi.xml" as shown in screenshots below:
-    - Upload template
+    - Upload template <br/>
         ![step1](./images/img1.png)
     - Select the template from local dirctory:
         ![step2](./images/img2.png)
