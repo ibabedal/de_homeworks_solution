@@ -50,7 +50,7 @@ services:
     dev-postgres:
         restart: always
         image: postgres
-        container_name: "ibrahim__hw2_postgres"
+        container_name: "ibrahim_hw2_postgres"
         ports:
             - "5432:5432"
         environment:
