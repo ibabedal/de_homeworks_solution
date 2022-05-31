@@ -42,6 +42,7 @@ def get_df_uk_daily(Day):
               'Lat', 'Long_', 'Confirmed', 'Deaths', 'Recovered', 'Active',
               'Combined_Key', 'Incident_Rate', 'Case_Fatality_Ratio']
         DF_i=DF_day[cond][Selec_columns].reset_index(drop=True)
+        print("I am working .... don't worry ^_^")
     except:
         #print(f'{Day} is not available!')
         pass
