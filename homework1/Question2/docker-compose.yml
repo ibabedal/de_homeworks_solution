@@ -99,6 +99,20 @@ services:
       networks:
         - localnet
 
+    mongo-express:
+      image: mongo-express
+      restart: always
+      ports:
+        - 8081:8081
+      environment:
+        ME_CONFIG_MONGODB_ADMINUSERNAME: root
+        ME_CONFIG_MONGODB_ADMINPASSWORD: example
+        ME_CONFIG_MONGODB_SERVER: mongo-db
+      container_name:   mongo-express
+
+      networks:
+        - localnet
+        
     postgres:
       image: postgres:13
       container_name: airflow-postgres

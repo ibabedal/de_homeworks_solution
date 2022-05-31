@@ -18,6 +18,9 @@
   - NOTE: Due to a bug in the libpq packages for Mac M1 laptops the connection to DB may fail, a workaround is to run the containers with [rosetta](https://docs.docker.com/desktop/mac/apple-silicon/#system-requirements 'rosetta')  or on intel based Linux machine ref link: https://stackoverflow.com/questions/62807717/how-can-i-solve-postgresql-scram-authentifcation-problem, https://github.com/MobSF/Mobile-Security-Framework-MobSF/issues/1898
 
 - Please open http://localhost:8080 (username: airflow, password: airflow) and the DAG named HW1_Q2 should be there, please activate it and the workflow should start, more details about workflow in below section.
+- Please login to pgadmin http://localhost:8000 (username: deproject@proj.com, password: password123) to check on the data in the source database, details for connecting to the postgres server as below (it should be already connected, but just in case)
+    - in case of an issue, the connection of pgadmin as below: server: **ibrahim_postgres** // username: postgres // password: password123 // DB: deproject
+- Please login to the mongo-express http://localhost:8081 to check on the destination, the collection name is: **de_hw1**
 
 ---
 
