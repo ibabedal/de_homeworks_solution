@@ -103,7 +103,7 @@ def df_to_db(ti):
 with DAG(
     'HW2',
     default_args=default_args,
-    schedule_interval=timedelta(minutes=5),  
+    schedule_interval=timedelta(hours=1),  
     catchup=False,
 )as dag:
     starting_point = BashOperator(task_id='starting_point', bash_command='echo "I am starting the DAG"')
