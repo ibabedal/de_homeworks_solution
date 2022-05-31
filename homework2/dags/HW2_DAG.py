@@ -42,18 +42,20 @@ def get_df_uk_daily(Day):
               'Lat', 'Long_', 'Confirmed', 'Deaths', 'Recovered', 'Active',
               'Combined_Key', 'Incident_Rate', 'Case_Fatality_Ratio']
         DF_i=DF_day[cond][Selec_columns].reset_index(drop=True)
-        print("I am working .... don't worry ^_^")
+        #print("I am working .... don't worry ^_^")
     except:
         #print(f'{Day} is not available!')
         pass
     return DF_i
 
 def get_files_uk():
+    import logging
     List_of_days = get_list_of_days()
     Start=time.time()
     df_all=[]
     for Day in List_of_days:
         df_all.append(get_df_uk_daily(Day))
+        logging.info("I am working .... don't worry ^_^")
     End=time.time()
     Time_in_sec=round((End-Start)/60,2)
     print(f'It took {Time_in_sec} minutes to get all data')
@@ -107,7 +109,7 @@ with DAG(
     catchup=False,
 )as dag:
     starting_point = BashOperator(task_id='starting_point', bash_command='echo "I am starting the DAG"')
-    installing_modules = BashOperator(task_id='installing_modules', bash_command='pip install sklearn matplot')
+    installing_modules = BashOperator(task_id='installing_modules', bash_command='pip install sklearn matplot logging')
     collect_files_for_uk = PythonOperator(task_id='collect_files_for_uk',python_callable=get_files_uk)
     scale_dataframe = PythonOperator(task_id='scale_dataframe',python_callable=scale_the_uk_data)
     create_plot_and_csv = PythonOperator(task_id='create_plot_and_csv',python_callable=create_plt_csv)
