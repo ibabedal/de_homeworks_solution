@@ -37,7 +37,7 @@ def get_df_uk_daily(Day):
         URL_Day=f'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/{Day}.csv'
         DF_day=pd.read_csv(URL_Day)
         DF_day['Day']=Day
-        cond=(DF_day.Country_Region=='United Kingdom')#&(DF_day.Province_State=='England')
+        cond=(DF_day.Country_Region=='United Kingdom')&(DF_day.Province_State=='England')
         Selec_columns=['Day','Country_Region', 'Last_Update',
               'Lat', 'Long_', 'Confirmed', 'Deaths', 'Recovered', 'Active',
               'Combined_Key', 'Incident_Rate', 'Case_Fatality_Ratio']
