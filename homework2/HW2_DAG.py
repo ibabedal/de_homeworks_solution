@@ -42,20 +42,20 @@ def get_df_uk_daily(Day):
               'Lat', 'Long_', 'Confirmed', 'Deaths', 'Recovered', 'Active',
               'Combined_Key', 'Incident_Rate', 'Case_Fatality_Ratio']
         DF_i=DF_day[cond][Selec_columns].reset_index(drop=True)
-        #print("I am working .... don't worry ^_^")
+        print("I am working .... don't worry ^_^")
     except:
         #print(f'{Day} is not available!')
         pass
     return DF_i
 
 def get_files_uk():
-    import logging
+    #import logging
     List_of_days = get_list_of_days()
     Start=time.time()
     df_all=[]
     for Day in List_of_days:
         df_all.append(get_df_uk_daily(Day))
-        logging.info("I am working .... don't worry ^_^")
+        #logging.info("I am working .... don't worry ^_^")
     End=time.time()
     Time_in_sec=round((End-Start)/60,2)
     print(f'It took {Time_in_sec} minutes to get all data')
